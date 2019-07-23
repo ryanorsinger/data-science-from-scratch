@@ -1,5 +1,4 @@
-# Finding Key Connectors
-
+# FINDING KEY CONNECTORS (chapter section)
 # social media users
 users = [
     { "id": 0, "name": "Hero" },
@@ -58,10 +57,27 @@ num_friends_by_id = [(user["id"], number_of_friends(user)) for user in users]
 # sort by most friends to least friends
 num_friends_by_id.sort(key=lambda id_and_friends: id_and_friends[1], reverse=True)
 
-# write a function that determines the count of friends of friends for a user
-# do not count friends of friends that are already friends
-# 
-# output should be:
-# { id_of_friend_of_friend: number_of_connections,
-#   id_of_friend_of_friend: number_of_connectsion,
-#   etc... }
+# Each pair is (user_id, number_of_friends)
+# [(1, 3), (2, 3), (3, 3), (5, 3), (8, 3), (0, 2), (4, 2), (6, 2), (7, 2), (9, 1)]
+# What we've done in the above operation is compute the network metric of "degree centrality"
+
+
+
+
+# DATA SCIENTISTS YOU MAY KNOW (chapter section)
+
+def foaf_ids_bad(user):
+    """foaf is short for "friend of friend" """
+    return [foaf_id 
+            for friend_id in friendships[user["id"]]
+            for foaf_id in friendships[friend_id]]
+
+# Fiends of friends for Hero at users[0]
+print(foaf_ids_bad(users[0]))
+# The above implementation is "Bad" because it includes user 0 and user 3 twice
+
+
+# Let's try to do better
+from collections import Counter 
+
+# def friends_of_friends(user):
