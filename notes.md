@@ -6,4 +6,4 @@
 - How to create a virual environment named "dfsf": `conda create -n dsfs python=3.6`
 - How to activate the virtual environment: `source activate dffs`
 - Do `source deactivate` to deactivate
-    
+
