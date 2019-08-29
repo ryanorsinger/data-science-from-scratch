@@ -7,3 +7,9 @@
 - How to activate the virtual environment: `source activate dffs`
 - Do `source deactivate` to deactivate
 
+## Possible future works:
+- 11 Exercises with Counter
+- 17 exercises with defaultdict
+- 17 exercises with dictionary comprehensions
+
+

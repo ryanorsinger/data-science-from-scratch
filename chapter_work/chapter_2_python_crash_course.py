@@ -181,3 +181,40 @@ word_counts
 for word, count in word_counts.most_common(12):
     print(word, count)
 
+
+# Sets
+primes_below_10 = {2, 3, 5, 7}
+s = set()
+s.add(1)
+s.add(2)
+s.add(3)
+s.add(2)
+s
+2 in s
+111 in s
+
+""" The 'in' operator is very very fast on sets"""
+stopwords_list = ["a", "an", "at", "but", "or"]
+"zip" in stopwords_list 
+
+stopwords_set = set(stopwords_list)
+"zip" in stopwords_set # this runs super fast
+
+""" sets are also useful for getting distinct values """
+
+# Control Flow
+
+# Ternary
+x = 5
+parity = "even" if x % 2 == 0 else "odd"
+
+total = 0
+for x in range(10, 20):
+    total += x
+
+
+## Truthiness
+all([True, "stuff", 1])
+any([False, {}, [], 0])
+any(["", True, "banana"])
+
