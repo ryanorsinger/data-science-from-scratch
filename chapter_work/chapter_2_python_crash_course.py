@@ -218,3 +218,50 @@ all([True, "stuff", 1])
 any([False, {}, [], 0])
 any(["", True, "banana"])
 
+
+# Sorting
+x = [4, 1, 2, 3]
+y = sorted(x) # returns a copy
+x.sort() # #mutates the list
+
+# sort the list by absolute value from largest to smallest
+x = sorted([-4, 1, -2, 3], key=abs, reverse=True)  # is [-4, 3, -2, 1]
+x
+
+# sort the words and counts from lowest count to highest
+wc = sorted(word_counts.items(),
+            key=lambda word_and_count: word_and_count[1],
+            reverse=False)
+wc
+
+
+
+# even numbers
+even_numbers = [x for x in range(10) if x % 2 == 0]
+
+# squares
+squares = [x**2 for x in range(20)]
+
+# even_squares
+even_squares = [x**2 for x in range(20) if x % 2 == 0]
+
+# Dictionary Comprehension
+square_dict = {x: x * x for x in range(5)}
+
+# Set comprehension
+square_set = {x * x for x in [1, -1]}
+
+zeros = [0 for _ in even_numbers]
+zeros
+
+# a list comprehension can include multiple for loops
+pairs = [(x, y)
+    for x in range(10)
+    for y in range(10)]
+pairs
+
+# later forloops can use the results of earlier ones
+increasing_pairs = [(x, y)
+    for x in range(10)
+    for y in range(x + 1, 10)]
+increasing_pairs
