@@ -149,23 +149,20 @@ def get_column(A: Matrix, j: int) -> Vector:
 
 from typing import Callable
 
-def make_matrix(
-    num_rows: int, 
+def make_matrix(num_rows: int, 
     num_cols: int, 
-    entry_fn: Callable[[int, int, float]]) -> Matrix:
+    entry_fn: Callable[[int, int], float]) -> Matrix:
     """ Returns a num_rows by num_cols matrix whose (i, j)-th entry is entry_fn(i, j)"""
     return [[entry_fn(i, j)             # given i, create a list
             for j in range(num_cols)]   #   [entry_fn(i, 0), ... ]
             for i in range(num_rows)]   # create one list for each i
-
+    
 
 def identity_matrix(n: int) -> Matrix:
     """ returns an n by n identity matrix """
     return make_matrix(n, n, lambda i, j: 1 if i == j else 0)
 
-assert identity_matrix(3) == [[3, 3, 3], [3, 3, 3], [3, 3, 3]]
-
-
+assert identity_matrix(3) == [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
 
 # Recall the friendships list of tuples from Chapter 1
 friendships = [(0, 1), (0, 2), (1, 2), (1, 3), (2, 3), (3, 4),
